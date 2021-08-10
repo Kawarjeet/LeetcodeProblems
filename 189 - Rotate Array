@@ -31,7 +31,7 @@ class Solution:
       nums[l], nums[r] = nums[r], nums[l]         
       l,r = l+1, r-1      
       
-    l, r = 0 , k-1                                # loop to reverse the first remaining elements in the array
+    l, r = 0 , k-1                                # loop to reverse the remaining elements in the array
     while l<r:                                   
       nums[l], nums[r] = nums[r], nums[l]         
       l,r = l+1, r-1             
