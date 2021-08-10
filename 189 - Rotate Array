@@ -1,0 +1,14 @@
+Given an array, rotate the array to the right by 'k' steps, where 'k' is non-negative.
+Problem link: https://leetcode.com/explore/featured/card/top-interview-questions-easy/92/array/646/
+
+SOLUTION:
+# We will try to solve this problem using three different approaches.
+
+# 1) Rotating the array in-place with O(1) space. In this approach, we will try to reverse the array, a total of 3 times, which then produces the desired output. In first reversal
+# the entire array is reversed. In second reversal we reverse the first 'k' elements, and in third reversal we reverse the remaining elements in the array. 
+# For example, 
+# nums=[1,2,3,4]     k=2
+# desired output: nums=[3,4,1,2]
+# after first reversal of all elements in array: nums=[4,3,2,1]
+# after second reversal of first 'k' elements: nums=[3,4,2,1]
+# after third reversal of remaining elements: nums:[3,4,1,2]
