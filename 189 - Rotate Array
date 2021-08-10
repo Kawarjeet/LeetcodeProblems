@@ -12,3 +12,26 @@ SOLUTION:
 # after first reversal of all elements in array: nums=[4,3,2,1]
 # after second reversal of first 'k' elements: nums=[3,4,2,1]
 # after third reversal of remaining elements: nums:[3,4,1,2]
+
+# Python 3 code:
+
+class Solution:
+  def rotate(self, nums:List[int], k:int) -> int:
+    k = k % len(nums)                             # this is needed for cases when k > len(nums) , suppose k = 4 and nums = [1,2,3]. After 4 rotations, nums = [3,1,2]
+                                                  # this is practically equivalent to k % len(nums) rotations, i.e., 4 % 3 rotations or 1 rotation. After 1 rotation, nums = [3,1,2]
+                                                  # So anytime there is rotation problem, then it is best to take mod of the number of rotations to reduce the number of iterations.
+                                                  
+    l, r = 0 , len(nums)                          # we are defining the left and right pointers for array 
+    while l<r:                                    # note that this loop reverses the entire array in place
+      nums[l], nums[r] = nums[r], nums[l]         # interchanging the values
+      l,r = l+1, r-1                              # incrementing and decrementing the two pointers 
+      
+    l, r = 0 , k-1                                # loop to reverse the first k elements in the array
+    while l<r:                                   
+      nums[l], nums[r] = nums[r], nums[l]         
+      l,r = l+1, r-1      
+      
+    l, r = 0 , k-1                                # loop to reverse the first remaining elements in the array
+    while l<r:                                   
+      nums[l], nums[r] = nums[r], nums[l]         
+      l,r = l+1, r-1             
